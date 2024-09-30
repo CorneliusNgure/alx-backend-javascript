@@ -116,4 +116,4 @@ module.exports = {
 ```
 
 and…
-Don’t forget to run $ npm install when you have the package.json
+Don’t forget to run $ `npm install` when you have the `package.json`
