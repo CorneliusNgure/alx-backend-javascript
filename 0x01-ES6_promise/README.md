@@ -274,15 +274,16 @@ Write an async function named `asyncUploadUser` that will call these two functio
   photo: response_from_uploadPhoto_function,
   user: response_from_createUser_function,
 }
-```javascript
+```
 If one of the async function fails, return an empty object. 
 Example:
-```
+```javascript
 {
   photo: null,
   user: null,
 }
 ```
+
 #### Test Code:
 ```javascript
 bob@dylan:~$ cat 100-main.js
