@@ -29,6 +29,8 @@ When the argument is:
 - false
 	- reject the promise with an error object with the message The fake API is not working currently
 Try testing it out for yourself
+
+#### Test Code:
 ```
 bob@dylan:~$ cat 1-main.js
 import getFullResponseFromAPI from './1-promise';
@@ -59,6 +61,20 @@ Append three handlers to the function:
 - When the Promise rejects, return an empty `Error` object
 - For every resolution, log `Got a response from the API` to the console
 
+#### Test Code:
+```
+bob@dylan:~$ cat 2-main.js
+import handleResponseFromAPI from "./2-then";
+
+const promise = Promise.resolve();
+handleResponseFromAPI(promise);
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 2-main.js 
+Got a response from the API
+bob@dylan:~$ 
+```
+
 ### Task 3: Handle multiple successful promises
 In this file, import `uploadPhoto` and `createUser` from utils.js
 Knowing that the functions in `utils.js` return promises, use the prototype below to collectively resolve all promises and log `body firstName lastName` to the console.
@@ -66,6 +82,7 @@ Knowing that the functions in `utils.js` return promises, use the prototype belo
 function handleProfileSignup()
 ```
 In the event of an error, log `Signup system offline` to the console
+#### Test Code:
 ```
 bob@dylan:~$ cat 3-main.js
 import handleProfileSignup from "./3-all";
@@ -78,3 +95,28 @@ photo-profile-1 Guillaume Salva
 bob@dylan:~$ 
 ```
 
+### Task 4. Simple promise
+Using the following prototype
+```
+function signUpUser(firstName, lastName) {
+}
+```
+That returns a resolved promise with this object:
+```
+{
+  firstName: value,
+  lastName: value,
+}
+```
+#### Test Code:
+```
+bob@dylan:~$ cat 4-main.js
+import signUpUser from "./4-user-promise";
+
+console.log(signUpUser("Bob", "Dylan"));
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 4-main.js 
+Promise { { firstName: 'Bob', lastName: 'Dylan' } }
+bob@dylan:~$
+```
