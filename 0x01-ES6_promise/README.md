@@ -18,7 +18,7 @@ bob@dylan:~$
 
 ### Taks 1: Don't make a promise...if you know you can't keep it
 Using the prototype below, return a `promise`. The parameter is a `boolean`.
-```
+```javascript
 getFullResponseFromAPI(success)
 ```
 When the argument is:
@@ -31,7 +31,7 @@ When the argument is:
 Try testing it out for yourself
 
 #### Test Code:
-```
+```javascript
 bob@dylan:~$ cat 1-main.js
 import getFullResponseFromAPI from './1-promise';
 
@@ -50,7 +50,7 @@ bob@dylan:~$
 
 ### Task 2: Catch me if you can!
 Using the function prototype below
-```
+```javascript
 function handleResponseFromAPI(promise)
 ```
 
@@ -62,7 +62,7 @@ Append three handlers to the function:
 - For every resolution, log `Got a response from the API` to the console
 
 #### Test Code:
-```
+```javascript
 bob@dylan:~$ cat 2-main.js
 import handleResponseFromAPI from "./2-then";
 
@@ -78,12 +78,12 @@ bob@dylan:~$
 ### Task 3: Handle multiple successful promises
 In this file, import `uploadPhoto` and `createUser` from utils.js
 Knowing that the functions in `utils.js` return promises, use the prototype below to collectively resolve all promises and log `body firstName lastName` to the console.
-```
+```javascript
 function handleProfileSignup()
 ```
 In the event of an error, log `Signup system offline` to the console
 #### Test Code:
-```
+```javascript
 bob@dylan:~$ cat 3-main.js
 import handleProfileSignup from "./3-all";
 
@@ -97,19 +97,19 @@ bob@dylan:~$
 
 ### Task 4. Simple promise
 Using the following prototype
-```
+```javascript
 function signUpUser(firstName, lastName) {
 }
 ```
 That returns a resolved promise with this object:
-```
+```javascript
 {
   firstName: value,
   lastName: value,
 }
 ```
 #### Test Code:
-```
+```javascript
 bob@dylan:~$ cat 4-main.js
 import signUpUser from "./4-user-promise";
 
@@ -124,13 +124,13 @@ bob@dylan:~$
 ### Task 5: Reject the promises
 Write and export a function named uploadPhoto. It should accept one argument fileName (string).
 The function should return a Promise rejecting with an Error and the string $fileName cannot be processed
-```
+```javascript
 export default function uploadPhoto(filename) {
 
 }
 ```
 #### Test Code:
-```
+```javascript
 bob@dylan:~$ cat 5-main.js
 import uploadPhoto from './5-photo-reject';
 
@@ -148,7 +148,7 @@ bob@dylan:~$
 ### Task 6: Handle multiple promises
 Import `signUpUser` from `4-user-promise.js` and `uploadPhoto` from `5-photo-reject.js`.
 Write and export a function named `handleProfileSignup`. It should accept three arguments `firstName (string)`, `lastName (string)`, and `fileName (string)`. The function should call the two other functions. When the promises are all settled it should return an array with the following structure:
-```
+```javascript
 [
     {
       status: status_of_the_promise,
@@ -158,7 +158,7 @@ Write and export a function named `handleProfileSignup`. It should accept three 
   ]
 ```
 #### Test Code:
-```
+```javascript
 bob@dylan:~$ cat 6-main.js
 import handleProfileSignup from './6-final-user';
 
@@ -173,12 +173,12 @@ bob@dylan:~$
 ### Task 7: Load balancer
 Write and export a function named `loadBalancer`. It should accept two arguments `chinaDownload` (Promise) and `USDownload` (Promise).
 The function should return the value returned by the promise that resolved the first.
-```
+```javascript
 export default function loadBalancer(chinaDownload, USDownload) {
 }
 ```
 #### Test Code:
-```
+```javascript
 bob@dylan:~$ cat 7-main.js
 import loadBalancer from "./7-load_balancer";
 
@@ -214,12 +214,12 @@ bob@dylan:~$
 ### Task 8: Throw error / try catch
 Write a function named `divideFunction` that will accept two arguments: `numerator` (Number) and `denominator` (Number).
 When the `denominator` argument is equal to 0, the function should throw a new error with the message `cannot divide by 0`. Otherwise it should return the `numerator` divided by the `denominator`.
-```
+```javascript
 export default function divideFunction(numerator, denominator) {
 }
 ```
 #### Test Code:
-```
+```javascript
 bob@dylan:~$ cat 8-main.js
 import divideFunction from './8-try';
 
@@ -242,7 +242,7 @@ Write a function named `guardrail` that will accept one argument `mathFunction` 
 This function should create and return an array named `queue`.
 
 When the `mathFunction` function is executed, the value returned by the function should be appended to the `queue`. If this function throws an error, the error message should be appended to the `queue`. In every case, the message `Guardrail was processed` should be added to the queue.
-```
+```javascript
 Example:
 
 [
@@ -251,7 +251,7 @@ Example:
 ]
 ```
 #### Test Code:
-```
+```javascript
 bob@dylan:~$ cat 9-main.js
 import guardrail from './9-try';
 import divideFunction from './8-try';
@@ -269,12 +269,12 @@ bob@dylan:~$
 ### Task 10: Await / Async
 Import `uploadPhoto` and `createUser` from `utils.js`
 Write an async function named `asyncUploadUser` that will call these two functions and return an object with the following format:
-```
+```javascript
 {
   photo: response_from_uploadPhoto_function,
   user: response_from_createUser_function,
 }
-```
+```javascript
 If one of the async function fails, return an empty object. 
 Example:
 ```
@@ -284,7 +284,7 @@ Example:
 }
 ```
 #### Test Code:
-```
+```javascript
 bob@dylan:~$ cat 100-main.js
 import asyncUploadUser from "./100-await";
 
