@@ -45,7 +45,7 @@ function countStudents(path) {
     }
   } catch (error) {
     // Handle file read errors
-    console.error('Cannot load the database');
+    throw new Error('Cannot load the database');
   }
 }
 
