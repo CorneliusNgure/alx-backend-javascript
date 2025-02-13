@@ -17,4 +17,9 @@ describe('calculateNumber', () => {
   it('should return 6 when inputs are 1.5 and 3.7', () => {
     assert.strictEqual(calculateNumber(1.5, 3.7), 6);
   });
+
+  it('should correctly round the second number when inputs are 2 and 3.3', () => {
+    assert.strictEqual(calculateNumber(2, 3.3), 5);
+  });
+
 });
